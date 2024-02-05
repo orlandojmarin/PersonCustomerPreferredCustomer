@@ -23,9 +23,9 @@ public class PreferredCustomer extends Customer
     private double discountPercentage;
     
     // CONSTRUCTORS
-    public PreferredCustomer(String personName, String personAddress, String personPhoneNumber, int customerNumber, boolean customerMailingList, double customerPurchaseAmount)
+    public PreferredCustomer(String personName, String personAddress, String personPhoneNumber, int loyaltyNumber, boolean customerMailingList, double customerPurchaseAmount)
     {
-        super(personName, personAddress, personPhoneNumber, customerNumber, customerMailingList);
+        super(personName, personAddress, personPhoneNumber, loyaltyNumber, customerMailingList);
         purchaseAmount = customerPurchaseAmount;
     }
     
@@ -45,23 +45,23 @@ public class PreferredCustomer extends Customer
     // method to get discount percentage
     public double getDiscountPercentage()
     {
-        if (purchaseAmount >= 2000)
+        if (purchaseAmount >= 2000.00)
         {
-            discountPercentage = 0.10;
+            discountPercentage = 10.0;
         }
-        else if (purchaseAmount >= 1500)
+        else if (purchaseAmount >= 1500.00)
         {
-            discountPercentage = 0.07;
+            discountPercentage = 7.0;
         }
-        else if (purchaseAmount >= 1000)
+        else if (purchaseAmount >= 1000.00)
         {
-            discountPercentage = 0.06;
+            discountPercentage = 6.0;
         }
-        else if (purchaseAmount >= 500)
+        else if (purchaseAmount >= 500.00)
         {
-            discountPercentage = 0.05;
+            discountPercentage = 5.0;
         }
-        else discountPercentage = 0.00;
+        else discountPercentage = 0.0;
               
         return discountPercentage;
     }   

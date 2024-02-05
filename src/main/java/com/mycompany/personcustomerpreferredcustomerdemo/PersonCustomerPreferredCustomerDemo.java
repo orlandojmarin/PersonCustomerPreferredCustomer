@@ -13,41 +13,38 @@ public class PersonCustomerPreferredCustomerDemo {
 
     public static void main(String[] args) 
     {
-        // create a customer object
+       System.out.println("Please provide information for a Customer.\n");
+
+       // create a customer object
        Customer customer1 = makeCustomer();
        
        // display the customer object
-       System.out.println();
        displayCustomer(customer1);
-       System.out.println();
        
-       System.out.println("Changing the customer's name and displaying their updated information.");
-       System.out.println();
+       System.out.println("Changing the Customer's name and displaying their updated information.");
        
        // change a customer field and display the new customer object
-       customer1.setName("Orlando Marin");
+       customer1.setName("Muffin Man");
        displayCustomer(customer1);
-       System.out.println();
+       
+       System.out.println("Now please provide information for a Preferred Customer.\n");
        
        // create a preferred customer object
        PreferredCustomer preferredCustomer1 = makePreferredCustomer();
        
        // display the preferred customer object
-       System.out.println();
        displayPreferredCustomer(preferredCustomer1);
-       System.out.println();
        
-       System.out.println();
-       System.out.println("Changing the preferred customer's account number and address, and displaying their updated information.");
-       System.out.println();
+       System.out.println("Changing the Preferred Customer's address and loyalty number, and displaying their updated information.");
        
        // change 2 preferred customer fields and display the new preferred customer object
-       preferredCustomer1.setNumber(99);
-       preferredCustomer1.setAddress("123 Drury Lane");
+       preferredCustomer1.setNumber(25);
+       preferredCustomer1.setAddress("The North Pole");
        
        // display the preferred customer object
        displayPreferredCustomer(preferredCustomer1);
-       System.out.println();
+       
+       System.out.println("Thank you, Orlando Marin!");
     }
         
     
@@ -55,7 +52,7 @@ public class PersonCustomerPreferredCustomerDemo {
     public static Customer makeCustomer()
     {
         String name, address, phoneNumber;
-        int custNumber;
+        int customerNumber;
         boolean mailingList;
         
         // create a scanner object to read user input
@@ -71,13 +68,13 @@ public class PersonCustomerPreferredCustomerDemo {
         System.out.println("What is the customer's phone number (numbers only)?");
         phoneNumber = keyboard.nextLine();
         
-        System.out.println("What is the customer's account number?");
-        custNumber = keyboard.nextInt();
+        System.out.println("What is the customer's loyalty number?");
+        customerNumber = keyboard.nextInt();
         
         System.out.println("Does the customer wish to be on the mailing list? If yes, answer 'true', and if no, answer 'false'.");
         mailingList = keyboard.nextBoolean();
         
-        Customer newCustomer = new Customer(name, address, phoneNumber, custNumber, mailingList);
+        Customer newCustomer = new Customer(name, address, phoneNumber, customerNumber, mailingList);
         
         return newCustomer;
     }
@@ -85,9 +82,9 @@ public class PersonCustomerPreferredCustomerDemo {
     // method to display customer info
     public static void displayCustomer(Customer object)
     {
-        System.out.printf("Customer Information\nName: %s\nAddress: %s\nPhone number: %s\nAccount Number: %d\nCustomer on mailing list: %b\n", 
+        System.out.printf("\nCustomer Information\nName: %s\nAddress: %s\nPhone number: %s\nLoyalty Number: %d\nCustomer on mailing list: %b\n\n", 
                 object.getName(), object.getAddress(), 
-                object.getPhoneNumber(), object.getNumber(), 
+                object.getPhoneNumber(), object.getCustomerNumber(), 
                 object.getMailingList());
     }
     
@@ -95,7 +92,7 @@ public class PersonCustomerPreferredCustomerDemo {
     public static PreferredCustomer makePreferredCustomer()
     {
         String name, address, phoneNumber;
-        int custNumber;
+        int customerNumber;
         boolean mailingList;
         double purchaseAmount;
         
@@ -112,8 +109,8 @@ public class PersonCustomerPreferredCustomerDemo {
         System.out.println("What is the preferred customer's phone number (numbers only)?");
         phoneNumber = keyboard.nextLine();
         
-        System.out.println("What is the preferred customer's account number?");
-        custNumber = keyboard.nextInt();
+        System.out.println("What is the preferred customer's loyalty number?");
+        customerNumber = keyboard.nextInt();
         
         System.out.println("Does the preferred customer wish to be on the mailing list? If yes, answer 'true', and if no, answer 'false'.");
         mailingList = keyboard.nextBoolean();
@@ -121,7 +118,7 @@ public class PersonCustomerPreferredCustomerDemo {
         System.out.println("What is the preferred customers purchase amount? Pleae enter numbers and decimal points only.");
         purchaseAmount = keyboard.nextDouble();
         
-        PreferredCustomer newPreferredCustomer = new PreferredCustomer(name, address, phoneNumber, custNumber, mailingList, purchaseAmount);
+        PreferredCustomer newPreferredCustomer = new PreferredCustomer(name, address, phoneNumber, customerNumber, mailingList, purchaseAmount);
         
         return newPreferredCustomer;
     }
@@ -129,9 +126,9 @@ public class PersonCustomerPreferredCustomerDemo {
     // method to display Preferred Customer Info
     public static void displayPreferredCustomer(PreferredCustomer object)
     {
-        System.out.printf("Preferred Customer Information\nName: %s\nAddress: %s\nPhone number: %s\nAccount Number: %d\nCustomer on mailing list: %b\nPurchase Amount: $%,.2f\nDiscount Percentage: %.2f", 
+        System.out.printf("\nPreferred Customer Information\nName: %s\nAddress: %s\nPhone number: %s\nLoyalty Number: %d\nCustomer on mailing list: %b\nPurchase Amount: $%,.2f\nDiscount Percentage: %.1f\n\n", 
                 object.getName(), object.getAddress(), 
-                object.getPhoneNumber(), object.getNumber(), 
+                object.getPhoneNumber(), object.getCustomerNumber(), 
                 object.getMailingList(), object.getPurchaseAmount(),
                     object.getDiscountPercentage());
     }

@@ -11,7 +11,7 @@ package com.mycompany.personcustomerpreferredcustomerdemo;
 public class Customer extends Person
 {
     // instance fields
-    private int number;
+    private int customerNumber;
     private boolean mailingList;
     
     // constructors
@@ -20,18 +20,18 @@ public class Customer extends Person
        If the mailingList is true, the customer wishes to be on the mailing list. If the
        mailing list value is false, the customer does not want to be on the mailing list.
     */
-    public Customer(String personName, String personAddress, String personPhoneNumber, int customerNumber, boolean customerMailingList)
+    public Customer(String personName, String personAddress, String personPhoneNumber, int loyaltyNumber, boolean customerMailingList)
     {
         super(personName, personAddress, personPhoneNumber);
-        number = customerNumber;
+        customerNumber = loyaltyNumber;
         mailingList = customerMailingList;
     }
     
     // methods
     // method that sets the customer number
-    public void setNumber(int customerNumber)
+    public void setNumber(int loyaltyNumber)
     {
-        number = customerNumber;
+        customerNumber = loyaltyNumber;
     }
     
     // method to set whether or not the customer is on the mailing list (boolean)
@@ -41,9 +41,9 @@ public class Customer extends Person
     }
     
     // method that returns the int customer
-    public int getNumber()
+    public int getCustomerNumber()
     {
-        return number;
+        return customerNumber;
     }
     
     // method that returns a boolean that shows whether or not the customer is on the mailing list
